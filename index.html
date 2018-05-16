@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="assets/spectre-0.5.1/spectre.min.css">
+    <link rel="stylesheet" href="assets/spectre-0.5.1/spectre-exp.min.css">
+    <link rel="stylesheet" href="assets/spectre-0.5.1/spectre-icons.min.css">
+    <style>body{padding: 2rem;}</style>
+
+    <title>MyQM Mail Sign Generator</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div class="container">
+
+            <div class="columns">
+
+                <div id="form" class="column col-lg-6 col-md-6 col-sm-12">
+
+                    <div class="panel">
+                        
+                        <div class="panel-header">
+                                  
+                            <div class="panel-title"><b>Générateur de signature mail</b></div>
+
+                            <div class="panel-body">
+
+                                <form>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="input-username">Nom et prénom</label>
+                                        <input class="form-input" type="text" id="input-username" v-model="username" v-on:keyup="updateCode">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="input-usertitle">Titre ou fonction</label>
+                                        <input class="form-input" type="text" id="input-usertitle" v-model="usertitle" v-on:keyup="updateCode">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="input-userphone">Téléphone</label>
+                                        <input class="form-input" type="text" id="input-userphone" v-model="userphone" v-on:keyup="updateCode">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="input-usermail">Adresse e-mail</label>
+                                        <input class="form-input" type="text" id="input-usermail" v-model="usermail" v-on:keyup="updateCode">
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="preview" class="column col-lg-6 col-md-6 col-sm-12">
+
+                    <div class="panel">
+                        
+                        <div class="panel-header">
+                                          
+                            <div class="panel-title"><b>Prévisualisation</b></div>
+
+                                    <div class="panel-body">
+                                        <div class="empty">
+                                            <div style="text-align: left;" id="code"><table cellpadding="0" cellspacing="0" border="0" style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;">
+                                                <tr><td valign="top" style="padding-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 7px; border-top: 0; border-bottom: 0: border-left: 0; border-right: solid 3px #2C997D"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/336747/myqm-p.png" width="70" height="102"></td>
+                                                <td style="padding-top: 0; padding-bottom: 0; padding-left: 12px; padding-right: 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;">
+                                                <tr><td colspan="2" style="color: #2C997D; font-size: 18px; font-family: Arial, Helvetica, sans-serif;"><b>{{ username }}</b></td></tr>
+                                                <tr><td colspan="2" style="padding-bottom: 5px; color: #999; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">{{ usertitle }}</td></tr>
+                                                <tr><td style="padding-right: 60px; vertical-align: top; line-height: 21px; color: #333333; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                                                    <span>{{ userphone }}</span><br>
+                                                    <a href="mailto:{{ usermail }}" style="color: #2C997D; text-decoration: none; font-weight: normal; font-size: 14px;">{{ usermail }}</a><br>
+                                                    <a href="https://www.myqm.io" style="color: #2C997D; text-decoration: none; font-weight: normal; font-size: 14px;">www.myqm.io</a>
+                                                    </td>
+                                                    <td style="vertical-align: top; color: #333333; line-height: 21px; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                                                </td></tr>
+                                                </table></td></tr></table></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-footer">
+
+                                        <form>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="input-code">Code de la signature</label>
+                                                <textarea class="form-input" id="input-code" v-html="code"></textarea>
+                                            </div>
+
+                                            <button type="button" class="btn btn-primary" v-on:click="saveCode">Copier le code</button>
+
+                                        </form>
+
+                                    </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>
