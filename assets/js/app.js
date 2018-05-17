@@ -1,10 +1,10 @@
 var app = new Vue({
     el: '#app',
     data: {
-      username: 'Nom et prénom',
-      usertitle: 'Fonction chez MyQM',
-      userphone: '+32 (0) 499 00 00 00',
-      usermail: 'hello@myqm.io',
+      username: '',
+      usertitle: '',
+      userphone: '',
+      usermail: '',
       code: '<p>code goes here</p>'
     },
     created: function () {
