@@ -5,13 +5,19 @@ var app = new Vue({
       usertitle: '',
       userphone: '',
       usermail: '',
-      code: '<p>code goes here</p>'
+      usermaillink: '',
+      code: ''
     },
-    created: function () {
-        this.code = document.getElementById("code").innerHTML;
-        this.code = this.code.trim();
+    watch: {
+        usermail: function (newValue, oldValue) {
+            this.usermaillink = "mailto:" + newValue;
+        }
     },
     methods:{
+        setCode: function(){
+            this.code = document.getElementById("code").innerHTML;
+            this.code = this.code.trim();
+        },
         updateCode: function(evt){
             this.code = document.getElementById("code").innerHTML;
             this.code = this.code.trim();
